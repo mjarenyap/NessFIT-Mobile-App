@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context="mobapde.machineproject.thenessfit.WeightLogActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:background="#efeff4"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:src="@drawable/left_arrow_dark"
+            android:id="@+id/iv_back"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WEIGHT LOG"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textColor="#444444"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="3"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="November 15, 2017"
+            android:textSize="20dp"
+            android:textColor="#444"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/tv_date"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Weight in Kilograms"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:background="@drawable/rounded_rectangle"
+            android:id="@+id/et_weight"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:textColor="#fff"
+            android:padding="15dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/red_rounded_button"
+            android:id="@+id/bt_save"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DELETE"
+            android:textColor="#444"
+            android:padding="15dp"
+            android:textSize="20dp"
+            android:background="@drawable/grey_outlined_button"
+            android:id="@+id/bt_delete"/>
+
+    </LinearLayout>
+
+</LinearLayout>
