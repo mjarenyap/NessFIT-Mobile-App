@@ -49,7 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/sunday_routine">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,7 +82,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/monday_routine">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -113,7 +115,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/tuesday_routine">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -145,7 +148,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/wednesday_routine">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -177,7 +181,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/thursday_routine">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -209,7 +214,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/friday_routine">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -241,7 +247,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/saturday_routine">
 
             <TextView
                 android:layout_width="wrap_content"
