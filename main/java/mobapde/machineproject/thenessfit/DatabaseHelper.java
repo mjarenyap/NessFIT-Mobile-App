@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String SCHEMA = "nessfit";
     public static final int VERSION = 1;
@@ -131,6 +133,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return u;
     }
 
+    public ArrayList<User> retrieveAllUsers(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.query(User.TABLE_NAME, null, null, null, null, null, null);
+
+        ArrayList<User> users = null;
+        if(c.moveToFirst()){
+            users = new ArrayList<>();
+            do{
+                User u = new User();
+
+                long id = c.getLong(c.getColumnIndex(User.COLUMN_ID));
+                String fullname = c.getString(c.getColumnIndex(User.COLUMN_FULLNAME));
+                int age = c.getInt(c.getColumnIndex(User.COLUMN_AGE));
+                String gender = c.getString(c.getColumnIndex(User.COLUMN_GENDER));
+                float height = c.getFloat(c.getColumnIndex(User.COLUMN_HEIGHT));
+                float weight = c.getFloat(c.getColumnIndex(User.COLUMN_WEIGHT));
+                float bmi = c.getFloat(c.getColumnIndex(User.COLUMN_BMI));
+                int training_level = c.getInt(c.getColumnIndex(User.COLUMN_TRAINING_LEVEL));
+                String uri = c.getString(c.getColumnIndex(User.COLUMN_URI));
+
+                u.setId(id);
+                u.setFullname(fullname);
+                u.setAge(age);
+                u.setGender(gender);
+                u.setHeight(height);
+                u.setWeight(weight);
+                u.setBmi(bmi);
+                u.setTraining_level(training_level);
+                u.setUri(uri);
+
+                users.add(u);
+
+            }while(c.moveToNext());
+        }
+
+        db.close();
+        c.close();
+        return users;
+    }
+
     public Cursor retrieveAllUsersCursor(){
         SQLiteDatabase db = getReadableDatabase();
         return db.query(User.TABLE_NAME, null,null,null,null,null,null);
@@ -210,6 +252,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return e;
     }
 
+    public ArrayList<Exercise> retrieveAllExercises(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.query(Exercise.TABLE_NAME, null, null, null, null, null, null);
+
+        ArrayList<Exercise> exercises = null;
+        if(c.moveToFirst()){
+            exercises = new ArrayList<>();
+            do{
+                Exercise e = new Exercise();
+
+                long id = c.getLong(c.getColumnIndex(Exercise.COLUMN_ID));
+                String name = c.getString(c.getColumnIndex(Exercise.COLUMN_NAME));
+                String description = c.getString(c.getColumnIndex(Exercise.COLUMN_DESCRIPTION));
+                int category = c.getInt(c.getColumnIndex(Exercise.COLUMN_CATEGORY));
+                int difficulty = c.getInt(c.getColumnIndex(Exercise.COLUMN_DIFFICULTY));
+                int calorie_burn = c.getInt(c.getColumnIndex(Exercise.COLUMN_CALORIE_BURN));
+                String uri = c.getString(c.getColumnIndex(Exercise.COLUMN_URI));
+
+                e.setId(id);
+                e.setName(name);
+                e.setDescription(description);
+                e.setCategory(category);
+                e.setDifficulty(difficulty);
+                e.setCalorie_burn(calorie_burn);
+                e.setUri(uri);
+
+                exercises.add(e);
+
+            }while(c.moveToNext());
+        }
+
+        db.close();
+        c.close();
+        return exercises;
+    }
+
     public Cursor retrieveAllExercisesCursor(){
         SQLiteDatabase db = getReadableDatabase();
         return db.query(Exercise.TABLE_NAME, null,null,null,null,null,null);
@@ -273,6 +351,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.close();
         db.close();
         return r;
+    }
+
+    public ArrayList<Routine> retrieveAllRoutines(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.query(Routine.TABLE_NAME, null, null, null, null, null, null);
+
+        ArrayList<Routine> routines = null;
+        if(c.moveToFirst()){
+            routines = new ArrayList<>();
+            do{
+                Routine r = new Routine();
+
+                long id = c.getLong(c.getColumnIndex(Routine.COLUMN_ID));
+                int day = c.getInt(c.getColumnIndex(Routine.COLUMN_DAY));
+                long exercise_id = c.getLong(c.getColumnIndex(Routine.COLUMN_EXERCISE_ID));
+
+                r.setId(id);
+                r.setDay(day);
+                r.setExercise_id(exercise_id);
+
+                routines.add(r);
+
+            }while(c.moveToNext());
+        }
+
+        db.close();
+        c.close();
+        return routines;
     }
 
     public Cursor retrieveAllRoutinesCursor(){
@@ -340,6 +446,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.close();
         db.close();
         return w;
+    }
+
+    public ArrayList<WeightLog> retrieveAllWeightLogs(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.query(WeightLog.TABLE_NAME, null, null, null, null, null, null);
+
+        ArrayList<WeightLog> weightLogs = null;
+        if(c.moveToFirst()){
+            weightLogs = new ArrayList<>();
+
+            do{
+                WeightLog w = new WeightLog();
+
+                long id = c.getLong(c.getColumnIndex(WeightLog.COLUMN_ID));
+                float weight = c.getFloat(c.getColumnIndex(WeightLog.COLUMN_WEIGHT));
+                int day = c.getInt(c.getColumnIndex(WeightLog.COLUMN_DAY));
+                int month = c.getInt(c.getColumnIndex(WeightLog.COLUMN_MONTH));
+                int year = c.getInt(c.getColumnIndex(WeightLog.COLUMN_YEAR));
+
+                w.setId(id);
+                w.setWeight(weight);
+                w.setDay(day);
+                w.setMonth(month);
+                w.setYear(year);
+
+                weightLogs.add(w);
+
+            }while(c.moveToNext());
+        }
+
+        db.close();
+        c.close();
+        return weightLogs;
     }
 
     public Cursor retrieveAllWeightLogsCursor(){
